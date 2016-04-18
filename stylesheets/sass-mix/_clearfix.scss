@@ -1,0 +1,17 @@
+/**
+ * Add a clearfix
+ *
+ * Should be used on the containing element
+ * @include mix-clearfix;
+ */
+
+@mixin mix-clearfix() {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "sass-mix",
+  "version": "0.1.0",
+  "description": "Library of useful sass mixins",
+  "main": "stylesheets/_sass-mix.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bbe-io/sass-mix.git"
+  },
+  "keywords": [
+    "sass",
+    "mix",
+    "mixin",
+    "bbe",
+    "utility"
+  ],
+  "author": "BBE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bbe-io/sass-mix/issues"
+  },
+  "homepage": "https://github.com/bbe-io/sass-mix#readme"
+}

@@ -1,0 +1,14 @@
+# IDE Files
+.idea
+
+# Gem Files
+*.gem
+
+# Bundler Files
+.bundle
+/vendor
+/node_modules
+Gemfile.lock
+
+# Sass Files
+.sass-cache

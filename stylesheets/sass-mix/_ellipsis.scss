@@ -1,0 +1,15 @@
+/**
+ * Truncate text and add an ellipsis
+ *
+ * @include mix-ellipsis;
+ * @include mix-ellipsis(50%);
+ */
+
+@mixin mix-ellipsis($width: 100%) {
+  display: inline-block;
+  max-width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
