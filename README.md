@@ -62,6 +62,8 @@ These functions are used to convert between RGB, HSL and HSV color formats. The 
 
 ## Center
 Center transform an element on an axis. Doesn't include position absolute.
+
+**@include mix-center(** [ *x*, *y*, *xy* ] **)**
  
 ### Example
 
@@ -80,6 +82,8 @@ Center transform an element on an axis. Doesn't include position absolute.
 
 ## Clearfix
 Clearfix an element containing floats.
+
+**@include mix-clearfix**
  
 ### Example
 
@@ -99,6 +103,8 @@ Clearfix an element containing floats.
 
 ## Pick Visible Color
 Returns the most visible colour for a given background.
+
+**@include mix-pick-visible-color(** *$foreground*, *$color-1*, *$color-2*, **)**
  
 ### Example
 
@@ -110,22 +116,28 @@ Returns the most visible colour for a given background.
 
 ## Tint and Shade
 Alternative to sass lighten and darken. Tint is a mix of color with white, shade is a mix of color with black.
+
+**mix-tint(** *$color*, *$percentage* **)**
+
+**mix-shade(** *$color*, *$percentage* **)**
  
 ### Example
 
 ```scss
 .background {
-    background-color: tint(red, 40%);
+    background-color: mix-tint(red, 40%);
 }
 
 .background {
-    background-color: shade(blue, 60%);
+    background-color: mix-shade(blue, 60%);
 }
 ```
 
 ## Ellipsis
 Truncate text and add an ellipsis
- 
+
+**@include mix-ellipsis(** [ *$width: 100%* ] **)**
+
 ### Example
 
 ```scss
@@ -142,6 +154,8 @@ Truncate text and add an ellipsis
 ## Viewport Units
 Fix for vw, vh, vmin, vmax on iOS 7.
 Works by replacing viewport units with px values on known screen sizes.
+
+**@include mix-viewport-unit(** *$property*, *$value* **)**
  
 ### Example
 
@@ -154,16 +168,18 @@ Works by replacing viewport units with px values on known screen sizes.
 ## HiDPI
 Target high DPI devices.
 
-**NOTE:** Default is 1.3 to target the Nexus 7. You can find more DPI ratios [here](https://bjango.com/articles/min-device-pixel-ratio).
+**NOTE:** Default of 1.3 targets the Nexus 7. You can find more DPI ratios [here](https://bjango.com/articles/min-device-pixel-ratio).
+
+**@include mix-viewport-unit(** [*$ratio: 1.3*] **)**
  
 ### Example
 
 ```scss
 .image {
-    background-image: url(normal-dpi.png);
+    background-image: url("normal-dpi.png");
 
-    @include hidpi(1.5) {
-        background-image: url(high-dpi.png);
+    @include mix-hidpi(1.5) {
+        background-image: url("high-dpi.png");
     }
 }
 ```
