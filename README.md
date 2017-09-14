@@ -214,3 +214,35 @@ Add an image overlay
     @include image-shade(50%, black);
 }
 ```
+
+## Aspect Ratio
+Using psuedo elements to maintain an elements aspect ratio, even as it scales
+
+**@mixin aspect-ratio($width, $height);**
+
+### Example
+
+```scss
+.sixteen-nine {
+  @include aspect-ratio(16, 9);
+}
+```
+### Output
+```css
+.sixteen-nine {
+  position: relative;
+}
+.sixteen-nine:before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 56.25%;
+}
+.sixteen-nine > .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+```
