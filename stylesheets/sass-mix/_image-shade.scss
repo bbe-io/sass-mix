@@ -1,0 +1,15 @@
+@mixin image-shade($percent: 20%, $color: $black) {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: rgba($color, $percent / 100%);
+    pointer-events: none;
+  }
+}

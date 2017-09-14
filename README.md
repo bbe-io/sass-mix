@@ -64,7 +64,7 @@ These functions are used to convert between RGB, HSL and HSV color formats. The 
 Center transform an element on an axis. Doesn't include position absolute.
 
 **@include mix-center(** [ *x*, *y*, *xy* ] **)**
- 
+
 ### Example
 
 ```scss
@@ -84,7 +84,7 @@ Center transform an element on an axis. Doesn't include position absolute.
 Clearfix an element containing floats.
 
 **@include mix-clearfix**
- 
+
 ### Example
 
 ```scss
@@ -94,7 +94,7 @@ Clearfix an element containing floats.
     .float-left {
 	    float: left;
 	}
-	
+
 	.float-right {
         float: right;
     }
@@ -105,7 +105,7 @@ Clearfix an element containing floats.
 Returns the most visible colour for a given background.
 
 **@include mix-pick-visible-color(** *$foreground*, *$color-1*, *$color-2*, **)**
- 
+
 ### Example
 
 ```scss
@@ -120,7 +120,7 @@ Alternative to sass lighten and darken. Tint is a mix of color with white, shade
 **mix-tint(** *$color*, *$percentage* **)**
 
 **mix-shade(** *$color*, *$percentage* **)**
- 
+
 ### Example
 
 ```scss
@@ -156,7 +156,7 @@ Fix for vw, vh, vmin, vmax on iOS 7.
 Works by replacing viewport units with px values on known screen sizes.
 
 **@include mix-viewport-unit(** *$property*, *$value* **)**
- 
+
 ### Example
 
 ```scss
@@ -171,7 +171,7 @@ Target high DPI devices.
 **NOTE:** Default of 1.3 targets the Nexus 7. You can find more DPI ratios [here](https://bjango.com/articles/min-device-pixel-ratio).
 
 **@include mix-viewport-unit(** [*$ratio: 1.3*] **)**
- 
+
 ### Example
 
 ```scss
@@ -181,5 +181,36 @@ Target high DPI devices.
     @include mix-hidpi(1.5) {
         background-image: url("high-dpi.png");
     }
+}
+```
+
+## Smart Underline
+Create a nice underline styling that is cut by the descendants
+
+The background variable define the text-shadow that create the cut effect, it needs to be set to the background of the container.
+
+**@include smart-underline(** [*$background: #fff*], [*$text: #fff*], [*$hover: #00acb0*]) **)**
+
+### Example
+
+```scss
+.container {
+	background-color: black
+}
+.container .link {
+    @include smart-underline(black, white, grey);
+}
+```
+
+## Image Shade
+Add an image overlay
+
+**@mixin image-shade(**[*$percent: 20%*],[*$color: #000*]**);**
+
+### Example
+
+```scss
+.img {
+    @include image-shade(50%, black);
 }
 ```

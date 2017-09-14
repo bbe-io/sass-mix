@@ -1,0 +1,31 @@
+@mixin smart-underline($background: #fff, $text: #000, $hover: #00acb0) {
+
+  position: relative;
+
+  text-decoration: none;
+  text-shadow: 1px 0 0 $background, 2px 0 0 $background, -1px 0 0 $background, -2px 0 0 $background;
+
+  // 1px underline
+  &:before {
+    content: '';
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 1px;
+    height: 1px;
+    z-index: -1;
+
+    background-color: $text;
+  }
+
+  &::selection {
+    text-shadow: none;
+  }
+
+  &:hover, &:focus {
+    &:before {
+      background-color: $hover;
+    }
+  }
+}
