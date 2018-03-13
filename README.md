@@ -246,3 +246,8 @@ Using psuedo elements to maintain an elements aspect ratio, even as it scales
   bottom: 0;
 }
 ```
+
+## Reset input
+Quick mixin to reset the input style
+
+**@mixin reset-input();**

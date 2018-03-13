@@ -1,0 +1,7 @@
+@mixin reset-input() {
+  -webkit-appearance: none;
+  border-radius: 0 !important;
+  background: transparent;
+  outline: 0;
+  border: 0;
+}
