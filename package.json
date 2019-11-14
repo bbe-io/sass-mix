@@ -1,6 +1,6 @@
 {
   "name": "sass-mix",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "description": "Library of useful sass mixins",
   "main": "stylesheets/_sass-mix.scss",
   "scripts": {
