@@ -37,16 +37,15 @@ All functions expect a color as the `$foreground` and `$background` colors. The 
 - **mix-blend-subtract(** *$foreground*, *$background* **)**
 
 ### Examples
-
 ```scss
 // Solid background
 .multiply {
-	background-color: blend-multiply(#7FFFD4, #DEB887);
+  background-color: blend-multiply(#7FFFD4, #DEB887);
 }
 
 // RGBa background
 .multiply {
-	background-color: blend-multiply(rgba(#7FFFD4, 0.5), rgba(#DEB887, 0.5));
+  background-color: blend-multiply(rgba(#7FFFD4, 0.5), rgba(#DEB887, 0.5));
 }
 ```
 
@@ -66,17 +65,16 @@ Center transform an element on an axis. Doesn't include position absolute.
 **@include mix-center(** [ *x*, *y*, *xy* ] **)**
 
 ### Example
-
 ```scss
 .container {
-    position: relative;
-    height: 500px;
-    width: 500px;
+  position: relative;
+  height: 500px;
+  width: 500px;
 
-    .centered {
-	    position: absolute;
-	    @include mix-center;
-	}
+  .centered {
+    position: absolute;
+    @include mix-center;
+  }
 }
 ```
 
@@ -86,18 +84,17 @@ Clearfix an element containing floats.
 **@include mix-clearfix**
 
 ### Example
-
 ```scss
 .container {
-    @include mix-clearfix;
+  @include mix-clearfix;
 
-    .float-left {
-	    float: left;
-	}
+  .float-left {
+    float: left;
+  }
 
-	.float-right {
-        float: right;
-    }
+  .float-right {
+    float: right;
+  }
 }
 ```
 
@@ -107,10 +104,9 @@ Returns the most visible colour for a given background.
 **@include mix-pick-visible-color(** *$foreground*, *$color-1*, *$color-2*, **)**
 
 ### Example
-
 ```scss
 .panel__heading {
-    color: mix-pick-visible-color($background-color, $black-text-color, $white-text-color);
+  color: mix-pick-visible-color($background-color, $black-text-color, $white-text-color);
 }
 ```
 
@@ -122,14 +118,13 @@ Alternative to sass lighten and darken. Tint is a mix of color with white, shade
 **mix-shade(** *$color*, *$percentage* **)**
 
 ### Example
-
 ```scss
 .background {
-    background-color: mix-tint(red, 40%);
+  background-color: mix-tint(red, 40%);
 }
 
 .background {
-    background-color: mix-shade(blue, 60%);
+  background-color: mix-shade(blue, 60%);
 }
 ```
 
@@ -139,15 +134,14 @@ Truncate text and add an ellipsis
 **@include mix-ellipsis(** [ *$width: 100%* ] **)**
 
 ### Example
-
 ```scss
 .panel__heading {
-    @include mix-ellipsis(90%);
+  @include mix-ellipsis(90%);
 }
 
 .panel__heading {
-    // Defaults to 100%
-    @include mix-ellipsis;
+  // Defaults to 100%
+  @include mix-ellipsis;
 }
 ```
 
@@ -158,10 +152,9 @@ Works by replacing viewport units with px values on known screen sizes.
 **@include mix-viewport-unit(** *$property*, *$value* **)**
 
 ### Example
-
 ```scss
 .banner {
-    @include mix-viewport-unit(height, 50vh);
+  @include mix-viewport-unit(height, 50vh);
 }
 ```
 
@@ -173,14 +166,13 @@ Target high DPI devices.
 **@include mix-viewport-unit(** [*$ratio: 1.3*] **)**
 
 ### Example
-
 ```scss
 .image {
-    background-image: url("normal-dpi.png");
+  background-image: url("normal-dpi.png");
 
-    @include mix-hidpi(1.5) {
-        background-image: url("high-dpi.png");
-    }
+  @include mix-hidpi(1.5) {
+    background-image: url("high-dpi.png");
+  }
 }
 ```
 
@@ -192,13 +184,13 @@ The background variable define the text-shadow that create the cut effect, it ne
 **@include smart-underline(** [*$background: #fff*], [*$text: #fff*], [*$hover: #00acb0*]) **)**
 
 ### Example
-
 ```scss
 .container {
-	background-color: black
+  background-color: black
 }
+
 .container .link {
-    @include smart-underline(black, white, grey);
+  @include smart-underline(black, white, grey);
 }
 ```
 
@@ -208,9 +200,84 @@ Add an image overlay
 **@mixin image-shade(**[*$percent: 20%*],[*$color: #000*]**);**
 
 ### Example
-
 ```scss
 .img {
-    @include image-shade(50%, black);
+  @include image-shade(50%, black);
+}
+```
+
+### Output
+```scss
+.img {
+  position: relative;
+}
+
+.img:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+```
+
+## Aspect Ratio
+Using psuedo elements to maintain an elements aspect ratio, even as it scales
+
+**@mixin aspect-ratio($width, $height);**
+
+### Example
+```scss
+.sixteen-nine {
+  @include aspect-ratio(16, 9);
+}
+```
+
+### Output
+```css
+.sixteen-nine {
+  position: relative;
+}
+
+.sixteen-nine:before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.sixteen-nine > .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+```
+
+## Reset input
+Reset the style of an input field
+
+**@mixin reset-input();**
+
+### Example
+```scss
+.text-input {
+  @include reset-input();
+}
+```
+
+### Output
+```css
+.text-input {
+  -webkit-appearance: none;
+  border-radius: 0 !important;
+  background: transparent;
+  outline: 0;
+  border: 0;
 }
 ```
